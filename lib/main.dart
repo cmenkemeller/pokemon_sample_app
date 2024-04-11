@@ -1,6 +1,6 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
-import 'package:pokemon_before_optimization/poke_app.dart';
+import 'package:pokemon_before_optimization/ui/poke_app.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'PokeAtlanta',
       theme: FlexThemeData.light(scheme: FlexScheme.redWine),
       darkTheme: FlexThemeData.dark(scheme: FlexScheme.redWine),
       home: const PokeApp(),

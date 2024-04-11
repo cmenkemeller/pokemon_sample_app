@@ -16,8 +16,8 @@ class PokemonDetailsCubit extends Cubit<PokemonDetailsViewModel> {
 
     final response =
         await http.get(Uri.parse('https://pokeapi.co/api/v2/pokemon/$id'));
-    final parseedRespones = json.decode(response.body);
-    final pokemonDetails = PokemonDetailsModel.fromJson(parseedRespones);
+    final parsedRespones = json.decode(response.body);
+    final pokemonDetails = PokemonDetailsModel.fromJson(parsedRespones);
 
     emit(PokemonDetailsViewModel(
       isLoading: false,

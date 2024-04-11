@@ -24,7 +24,8 @@ class PokemonModel with _$PokemonModel {
 
   const PokemonModel._();
 
-  String get id => url.pathSegments.reversed.elementAt(1);
+  String get id =>
+      url.pathSegments.length > 1 ? url.pathSegments.reversed.elementAt(1) : '';
   String get spriteUrl =>
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$id.png";
 

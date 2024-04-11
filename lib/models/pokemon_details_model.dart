@@ -70,32 +70,6 @@ class PokemonDetailsModel {
       weight = json["weight"];
     }
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-
-    data["base_experience"] = baseExperience;
-
-    data["height"] = height;
-
-    data["id"] = id;
-    data["is_default"] = isDefault;
-
-    data["name"] = name;
-    data["order"] = order;
-
-    if (sprites != null) {
-      data["sprites"] = sprites?.toJson();
-    }
-    if (stats != null) {
-      data["stats"] = stats?.map((e) => e.toJson()).toList();
-    }
-    if (types != null) {
-      data["types"] = types?.map((e) => e.toJson()).toList();
-    }
-    data["weight"] = weight;
-    return data;
-  }
 }
 
 class Types {
@@ -112,15 +86,6 @@ class Types {
       type = json["type"] == null ? null : Type.fromJson(json["type"]);
     }
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data["slot"] = slot;
-    if (type != null) {
-      data["type"] = type?.toJson();
-    }
-    return data;
-  }
 }
 
 class Type {
@@ -136,13 +101,6 @@ class Type {
     if (json["url"] is String) {
       url = json["url"];
     }
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data["name"] = name;
-    data["url"] = url;
-    return data;
   }
 }
 
@@ -164,16 +122,6 @@ class Stats {
       stat = json["stat"] == null ? null : Stat.fromJson(json["stat"]);
     }
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data["base_stat"] = baseStat;
-    data["effort"] = effort;
-    if (stat != null) {
-      data["stat"] = stat?.toJson();
-    }
-    return data;
-  }
 }
 
 class Stat {
@@ -189,13 +137,6 @@ class Stat {
     if (json["url"] is String) {
       url = json["url"];
     }
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data["name"] = name;
-    data["url"] = url;
-    return data;
   }
 }
 
@@ -246,20 +187,6 @@ class Sprites {
       frontShinyFemale = json["front_shiny_female"];
     }
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data["back_default"] = backDefault;
-    data["back_female"] = backFemale;
-    data["back_shiny"] = backShiny;
-    data["back_shiny_female"] = backShinyFemale;
-    data["front_default"] = frontDefault;
-    data["front_female"] = frontFemale;
-    data["front_shiny"] = frontShiny;
-    data["front_shiny_female"] = frontShinyFemale;
-
-    return data;
-  }
 }
 
 class Moves {
@@ -279,18 +206,6 @@ class Moves {
               .map((e) => VersionGroupDetails.fromJson(e))
               .toList();
     }
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    if (move != null) {
-      data["move"] = move?.toJson();
-    }
-    if (versionGroupDetails != null) {
-      data["version_group_details"] =
-          versionGroupDetails?.map((e) => e.toJson()).toList();
-    }
-    return data;
   }
 }
 
@@ -317,18 +232,6 @@ class VersionGroupDetails {
           : VersionGroup.fromJson(json["version_group"]);
     }
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data["level_learned_at"] = levelLearnedAt;
-    if (moveLearnMethod != null) {
-      data["move_learn_method"] = moveLearnMethod?.toJson();
-    }
-    if (versionGroup != null) {
-      data["version_group"] = versionGroup?.toJson();
-    }
-    return data;
-  }
 }
 
 class VersionGroup {
@@ -344,13 +247,6 @@ class VersionGroup {
     if (json["url"] is String) {
       url = json["url"];
     }
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data["name"] = name;
-    data["url"] = url;
-    return data;
   }
 }
 
@@ -368,13 +264,6 @@ class MoveLearnMethod {
       url = json["url"];
     }
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data["name"] = name;
-    data["url"] = url;
-    return data;
-  }
 }
 
 class Move {
@@ -390,12 +279,5 @@ class Move {
     if (json["url"] is String) {
       url = json["url"];
     }
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data["name"] = name;
-    data["url"] = url;
-    return data;
   }
 }

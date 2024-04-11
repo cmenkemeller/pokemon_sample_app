@@ -1,7 +1,7 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokemon_before_optimization/blocs/pokemon_details_cubit.dart';
+import 'package:pokemon_before_optimization/cubits/pokemon_details_cubit.dart';
 
 class PokeDetailsScreen extends StatelessWidget {
   final String pokemonId;
@@ -43,27 +43,42 @@ class PokeDetailsScreen extends StatelessWidget {
                           ListTile(
                             leading: const Icon(Icons.info),
                             title: const Text('Name'),
-                            subtitle: Text(state.pokemonDetails?.name?.capitalize ?? ''),
+                            subtitle: Text(
+                                state.pokemonDetails?.name?.capitalize ?? ''),
                           ),
                           ListTile(
                             leading: const Icon(Icons.arrow_circle_up),
                             title: const Text('Experience'),
-                            subtitle:
-                                Text((state.pokemonDetails?.baseExperience ?? 0).toString()),
+                            subtitle: Text(
+                                (state.pokemonDetails?.baseExperience ?? 0)
+                                    .toString()),
                           ),
                           ListTile(
                             leading: const Icon(Icons.height),
                             title: const Text('Height'),
-                            subtitle:
-                                Text((state.pokemonDetails?.height ?? 0).toString()),
+                            subtitle: Text(
+                                (state.pokemonDetails?.height ?? 0).toString()),
                           ),
                           ListTile(
                             leading: const Icon(Icons.monitor_weight),
                             title: const Text('Weight'),
-                            subtitle:
-                                Text((state.pokemonDetails?.weight ?? 0).toString()),
+                            subtitle: Text(
+                                (state.pokemonDetails?.weight ?? 0).toString()),
                           ),
-                         /*  Text('ID: ${state.pokemonDetails?.id ?? ''}'),
+                          ListTile(
+                            leading: const Icon(Icons.format_list_numbered),
+                            title: const Text('Moves'),
+                            subtitle: ListView(
+                              shrinkWrap: true,
+                              primary: false,
+                                children: state.pokemonDetails?.moves
+                                        ?.map(
+                                          (move) => Text(move.move?.name ?? ''),
+                                        )
+                                        .toList() ??
+                                    []),
+                          ),
+                          /*  Text('ID: ${state.pokemonDetails?.id ?? ''}'),
                           Text(
                               'Base Experience: ${state.pokemonDetails?.baseExperience ?? ''}'),
                           Text('Height: ${state.pokemonDetails?.height ?? ''}'),
@@ -77,7 +92,8 @@ class PokeDetailsScreen extends StatelessWidget {
                               'Moves: ${state.pokemonDetails?.moves?.map((move) => move.move?.name).join(', ') ?? ''}'),
                           Text(
                               'Stats: ${state.pokemonDetails?.stats?.map((stat) => '${stat.stat?.name}: ${stat.baseStat}').join(', ') ?? ''}'),
-                        */ ],
+                        */
+                        ],
                       )
                     ],
                   ),

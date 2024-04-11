@@ -20,9 +20,9 @@ format_tests:
 
 run_tests_with_coverage:
 	@echo "✏️🤖 Running tests with coverage..."
-	@dart pub global run full_coverage
+	# @dart pub global run full_coverage
 	@flutter test --coverage
-	@lcov --remove coverage/lcov.info '**/*.g.dart' -o coverage/lcov.info
+	@lcov --remove coverage/lcov.info '**/*.g.dart'  --ignore-errors unused -o coverage/lcov.info
 	@genhtml coverage/lcov.info -o coverage/html
 
 open_coverage:
